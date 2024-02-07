@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moveable Button</title>
+<style>
+    body{
+        background-image: url(back.jpg);
+        background-size: 1400px;
+    }
+  .container {
+    text-align: center;
+    position: relative;
+    top: 150px;
+    border-end-start-radius: 10PX;
+  }
+  button {
+    position: absolute;
+    background-color: rgb(198, 94, 111);
+  }
+  .pepe{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <img src="toto.jpg" alt="Your Image" width="200px" height="100px">
+  <p class="pepe">Wach nrej3ou?</p>
+  <button onclick="yesClicked()" id="yesButton">Yes</button>
+  <button onclick="noClicked()" id="noButton" onmousemove="moveButton()">No</button>
+</div>
+<style>
+    #noButton{
+        position: relative;
+        left:50px;
+    }
+    #yesButton{
+        position: relative;
+        right:50px;
+    }
+</style>
+<script>
+  function yesClicked() {
+    alert("Great! Let's go back together!");
+  }
+
+  function noClicked() {
+    alert("Okay, I understand.");
+  }
+
+  function moveButton() {
+    var button = document.getElementById("noButton");
+    var windowWidth = window.innerWidth;
+    var windowHeight = window.innerHeight;
+    var buttonWidth = button.offsetWidth;
+    var buttonHeight = button.offsetHeight;
+
+    // Calculate a random position for the button
+    var newX = Math.random() * (100 - buttonWidth);
+    var newY = Math.random() * (200 - buttonHeight);
+
+    // Set the new position
+    button.style.left = newX + "px";
+    button.style.top = newY + "px";
+  }
+</script>
+
+</body>
+</html>
